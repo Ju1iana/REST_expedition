@@ -28,4 +28,8 @@ public class PeopleService {
   public List<Person> getAllPeople(){
     return repository.findAll();
   }
+
+  public Person getPersonById(int id){
+    return repository.findById(id);
+  }
 }

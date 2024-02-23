@@ -33,4 +33,13 @@ public class PeopleController {
   public List<Person> getAllPerson(){
     return peopleService.getAllPeople();
   }
+
+
+  @Operation(summary = "Get person by id")
+  @ResponseStatus(code = HttpStatus.FOUND)
+  @RequestMapping(method = RequestMethod.GET, value = "/getPersonById{id}")
+  public Person getPersonById(@RequestParam("id") int id){
+    return peopleService.getPersonById(id);
+  }
+
 }
