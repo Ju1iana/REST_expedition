@@ -40,4 +40,10 @@ public class PeopleController {
     peopleService.addPerson(person);
   }
 
+  @Operation(summary = "Delete person by id")
+  @ResponseStatus(code = HttpStatus.OK)
+  @RequestMapping(method = RequestMethod.DELETE, value = "/deletePersonById")
+  public void deleteById(@RequestParam("id") int id){
+    peopleService.deleteById(id);
+  }
 }

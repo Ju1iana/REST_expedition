@@ -32,4 +32,8 @@ public class PeopleService {
   public Person getPersonById(int id){
     return repository.findById(id);
   }
+
+  public void deleteById(int id){
+    repository.deleteById(id);
+  }
 }
