@@ -53,9 +53,11 @@ public class Calculator {
             }
             case WOMAN: {
                 answer = ((10 * person.getWeight() + 6.25 * person.getH() - 5 * person.getAge() - 161) * A);
+              System.out.println("1: "+answer);
                 break;
             }
         }
+      System.out.println("2: "+answer);
         return answer;
     }
 

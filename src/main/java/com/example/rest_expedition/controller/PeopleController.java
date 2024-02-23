@@ -18,13 +18,11 @@ public class PeopleController {
     this.peopleService = peopleService;
   }
 
-  @Operation(summary = "Add a person")
-  @ResponseStatus(code = HttpStatus.CREATED)
-  @RequestMapping(method = RequestMethod.POST, value = "/addPerson")
-  public void addPerson(@RequestBody Person person){
-    peopleService.calculateCalories(person);
-    peopleService.addPerson(person);
-    System.out.println(person);
+  @Operation(summary = "Get person by id")
+  @ResponseStatus(code = HttpStatus.FOUND)
+  @RequestMapping(method = RequestMethod.GET, value = "/getPersonById{id}")
+  public Person getPersonById(@RequestParam("id") int id){
+    return peopleService.getPersonById(id);
   }
 
   @Operation(summary = "Get all people")
@@ -34,12 +32,11 @@ public class PeopleController {
     return peopleService.getAllPeople();
   }
 
-
-  @Operation(summary = "Get person by id")
-  @ResponseStatus(code = HttpStatus.FOUND)
-  @RequestMapping(method = RequestMethod.GET, value = "/getPersonById{id}")
-  public Person getPersonById(@RequestParam("id") int id){
-    return peopleService.getPersonById(id);
+  @Operation(summary = "Add a person")
+  @ResponseStatus(code = HttpStatus.CREATED)
+  @RequestMapping(method = RequestMethod.POST, value = "/addPerson")
+  public void addPerson(@RequestBody Person person){
+    person.setCalories(peopleService.calculateCalories(person));
+    peopleService.addPerson(person);
   }
-
 }
