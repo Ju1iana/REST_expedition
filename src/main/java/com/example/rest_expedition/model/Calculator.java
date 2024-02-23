@@ -20,6 +20,7 @@ public class Calculator {
     private int rationCalories;
     private int rightRation;
 
+    //TODO - удалить
 /*    public void bToDouble(String b) {
         switch (b) {
             case "Пеший":
@@ -30,7 +31,6 @@ public class Calculator {
                 setBetta(1.3);
         }
     }*/
-
 
     /*public void calcDuration(double duration, PersonRepository repository) {
         amount = 0;
@@ -70,7 +70,7 @@ public class Calculator {
         return answer;
     }
 
-    /*public Ration numberOfRation(RationRepository repository) {
+  /*  public Ration numberOfRation(RationRepository repository) {
         int closestNumber = Integer.MAX_VALUE;
         List<Ration> rationList = repository.findAll();
         for(Ration ration : rationList) {
