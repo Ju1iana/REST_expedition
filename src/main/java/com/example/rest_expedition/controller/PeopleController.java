@@ -39,4 +39,5 @@ public class PeopleController {
     person.setCalories(peopleService.calculateCalories(person));
     peopleService.addPerson(person);
   }
+
 }
