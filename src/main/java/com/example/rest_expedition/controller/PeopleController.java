@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/")
 @CrossOrigin(origins = "http://localhost:8080")
@@ -23,7 +22,9 @@ public class PeopleController {
   @ResponseStatus(code = HttpStatus.CREATED)
   @RequestMapping(method = RequestMethod.POST, value = "/addPerson")
   public void addPerson(@RequestBody Person person){
+    peopleService.calculateCalories(person);
     peopleService.addPerson(person);
+    System.out.println(person);
   }
 
   @Operation(summary = "Get all people")
