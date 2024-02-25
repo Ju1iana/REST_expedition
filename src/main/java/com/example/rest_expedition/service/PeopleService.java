@@ -42,8 +42,6 @@ public class PeopleService {
   public Person getPersonById(int id) {
     Optional<Person> foundPerson = Optional.ofNullable(peopleRepository.findById(id));
     return foundPerson.orElseThrow(PersonNotFoundException::new);
-
-    /*return peopleRepository.findById(id);*/
   }
 
   public void deleteById(int id) {

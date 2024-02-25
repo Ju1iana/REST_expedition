@@ -46,10 +46,11 @@
       <scope>compile</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>6.1.6.Final</version>
+      <version>8.0.1.Final</version>
     </dependency>
 
     <dependency>
@@ -79,10 +80,10 @@
       <version>3.0.11.RELEASE</version>
     </dependency>-->
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
+    </dependency>-->
 
 
   </dependencies>

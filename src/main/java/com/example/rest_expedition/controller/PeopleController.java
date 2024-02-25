@@ -45,7 +45,6 @@ public class PeopleController {
   @RequestMapping(method = RequestMethod.POST, value = "/addPerson")
   public ResponseEntity<HttpStatus> addPerson(@RequestBody @Valid Person person,
                                               BindingResult bindingResult) {
-
     if (bindingResult.hasErrors()) {
       StringBuilder errorMsg = new StringBuilder();
       List<FieldError> errors = bindingResult.getFieldErrors();
@@ -58,7 +57,6 @@ public class PeopleController {
     }
     person.setCalories(peopleService.calculateCalories(person));
     peopleService.addPerson(person);
-
     return ResponseEntity.ok(HttpStatus.OK);
   }
 

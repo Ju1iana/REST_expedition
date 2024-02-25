@@ -32,9 +32,6 @@ public class Person {
   @Column(name = "gender")
   private PersonGender personGender;
 
-
-  // TODO не работают валидаторы, можно добавить человека с отрицательным возрастом и т.п.
-
   @Column(name = "age")
   @Min(value = 0, message = "Age should be greater then 0")
   @Max(value = 122, message = "Age should be less than 122")

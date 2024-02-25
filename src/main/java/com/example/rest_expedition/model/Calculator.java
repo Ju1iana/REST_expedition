@@ -3,7 +3,6 @@ package com.example.rest_expedition.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-import java.util.List;
 
 @Component
 @Data
@@ -53,11 +52,10 @@ public class Calculator {
             }
             case WOMAN: {
                 answer = ((10 * person.getWeight() + 6.25 * person.getH() - 5 * person.getAge() - 161) * A);
-              System.out.println("1: "+answer);
                 break;
             }
         }
-      System.out.println("2: "+answer);
+      System.out.println("1: "+answer);
         return answer;
     }
 
