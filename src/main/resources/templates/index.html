@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../static/assets/css/style.css">
+  <link rel="stylesheet" href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}">
   <title>Title</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
   <button> Calculate </button>
 
   <button id="fetchButton" > GET </button>
-  <script src="../scripts/request.js"> </script>
+  <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
 
 </div>
 

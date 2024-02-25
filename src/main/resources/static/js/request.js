@@ -3,15 +3,10 @@ const Buttonget = document.getElementById('fetchButton');
 Buttonget.addEventListener('click', () => {           // Тут мейби вместо ивент ()
 
 async function getResponse() {
-     let response = await fetch('http://localhost:8080/getAllPeople', {
-         method: 'GET',
-        withCredentials: true,
-         crossorigin: true,
-         mode: 'no-cors',
-     })
-    console.log(JSON.parse(response))
-
+     let response = await fetch('http://localhost:8080/getAllPeople')
+    console.log(response)
  }
+
  getResponse()
 
 })
@@ -32,3 +27,19 @@ async function getResponse() {
 
 //     let content = await response.text()
 //     console.log(content)
+
+
+
+
+
+//async function getResponse() {
+//      let response = await fetch('http://localhost:8080/getAllPeople', {
+//          method: 'GET',
+//         withCredentials: true,
+//          crossorigin: true,
+//          mode: 'no-cors',
+//      })
+//     console.log(JSON.parse(response))
+//
+//  }
+//  getResponse()
