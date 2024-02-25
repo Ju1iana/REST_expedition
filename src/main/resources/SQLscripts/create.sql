@@ -21,8 +21,11 @@ CREATE TABLE Ration
 
 
 
-INSERT INTO Person (fio, gender, h, age, calories)
-values ('Pankratova U.A.', 'WOMAN', 160, 21, 0);
+INSERT INTO Person (fio, gender, h, age, weight, calories)
+values ('Pankratova U.A.', 'WOMAN', 160, 21, 52, 2350);
+
+INSERT INTO Person (fio, gender, h, age, weight, calories)
+values ('Naimushin S.M.', 'MAN', 166, 22, 70, 2700);
 
 SELECT *
 FROM Ration;
