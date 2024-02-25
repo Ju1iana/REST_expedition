@@ -3,14 +3,10 @@ package com.example.rest_expedition.service;
 import com.example.rest_expedition.model.Calculator;
 import com.example.rest_expedition.model.Person;
 import com.example.rest_expedition.repository.PeopleRepository;
-import com.example.rest_expedition.util.PersonErrorResponse;
 import com.example.rest_expedition.util.PersonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.List;
 import java.util.Optional;
