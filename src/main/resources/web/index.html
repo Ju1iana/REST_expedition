@@ -41,33 +41,8 @@
     <button> Set Hike </button>
     <button> Calculate </button>
 
-    <button id="fetchButton">Fetch Data</button>
-
-<h1> Марс голый </h1>
-
-<h1> MARS ТОЛСТЫЙ! </h1>
-
-    <script>
-        const fetchButton = document.getElementById('fetchButton');
-
-        fetchButton.addEventListener('click', () => {
-
-            fetch('http://localhost:8080/getAllPeople', {
-                method: 'GET',
-                withCredentials: true,
-                crossorigin: true,
-                mode: 'no-cors',
-            })
-
-                .then(response => {
-                    if (!response.ok) throw new Error('Не удалось подключиться');
-                    return response.json();
-                })
-
-                .then(data => console.log(data))
-                .catch(error => console.error ('Ошибка Fetch API: ', + error));
-        });
-    </script>
+    <button id="fetchButton" > GET </button>
+    <script src="../scripts/request.js"> </script>
 
 </div>
 
