@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}">
-  <title>Title</title>
+  <title>Продовольствие</title>
 </head>
 <body>
 
 <div>
-  <input type="text" placeholder="Имя/Фамилия">
-  <input type="text" placeholder="Возраст">
-  <input type="text" placeholder="Рост">
-  <input type="text" placeholder="Вес">
-  <select>
-    <option value="MAN">Мужчина</option>
-    <option value="WOMAN">Женщина</option>
-  </select>
+
+  <input type="text" placeholder="Имя/Фамилия" id="fios">
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+  <input type="text" placeholder="MAN/WOMAN" id="genders">
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+  <input type="number" placeholder="Возраст" id="ages">
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+  <input type="number" placeholder="Рост" id="heightes">
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+  <input type="number" placeholder="Вес" id="weightes">
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+</div>
+
+
+<div>
 
   <input type="text" placeholder="Длительность похода">
 
@@ -33,18 +45,33 @@
     <option value="rank5">Пятая Категория</option>
     <option value="rank6">Шестая Категория</option>
     <option value="rank7">Седьмая Категория</option>
-
-
   </select>
 
-  <button> Create Person </button>
   <button> Set Hike </button>
-  <button> Calculate </button>
+
+</div>
+
+
+<div>
+
+  <button> Calculate </button>           // В ОТДЕЛЬНЫЙ БЛОК ПОМЕСТИТЬ С ВЫВОДОН ИТОГОВЫХ ДАННЫХ
 
   <button id="fetchButton" > GET </button>
   <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
 
+  <button id="fetchButtonPost" > POST (Create Person) </button>
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+  <button id="fetchButtonID" > GET ID </button>
+  <script src="../static/js/idrequest.js" th:src="@{/js/idrequest.js}"> </script>
 </div>
+
+
+
+<div id="getContent" > </div>
+
+
+
 
 </body>
 </html>

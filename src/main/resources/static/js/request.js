@@ -1,15 +1,23 @@
 const Buttonget = document.getElementById('fetchButton');
 
-Buttonget.addEventListener('click', () => {           // Тут мейби вместо ивент ()
+Buttonget.addEventListener('click', () => {
 
-async function getResponse() {
-     let response = await fetch('http://localhost:8080/getAllPeople')
-    console.log(response)
- }
+    async function getResponse() {
+        let response = await fetch('http://localhost:8080/getAllPeople',{
+            mode: 'no-cors',
+        })
 
- getResponse()
+        let content = await response.json()
+        console.log(content)
+        console.log(response.status)
+        document.getElementById('getContent').innerText = JSON.stringify(content, null, 2);
 
+
+
+    }
+    getResponse()
 })
+
 
 
 
@@ -24,12 +32,8 @@ async function getResponse() {
 //     console.log(content)
 
 
-
 //     let content = await response.text()
 //     console.log(content)
-
-
-
 
 
 //async function getResponse() {
