@@ -1,15 +1,17 @@
 const ButtonPost = document.getElementById('fetchButtonPost');
-let gender = document.getElementById('genders')
-let ages = document.getElementById('ages')
-let heightes = document.getElementById('heightes')
-let weightes = document.getElementById('weightes')
-let fios = document.getElementById('fios')
+
+var gender = document.getAttribute('genders')
+var ages = document.getAttribute('ages')
+var heightes = document.getAttribute('heightes')
+var weightes = document.getAttribute('weightes')
+var fios = document.getAttribute('fios')
+
 
 
 ButtonPost.addEventListener('click', () => {
 
     async function postResponse() {
-        let user = {
+        var user = {
             personGender: gender,
             age: ages,
             h: heightes,
