@@ -3,7 +3,6 @@ package com.example.rest_expedition.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-import java.util.List;
 
 @Component
 @Data
@@ -20,6 +19,7 @@ public class Calculator {
     private int rationCalories;
     private int rightRation;
 
+    //TODO - удалить
 /*    public void bToDouble(String b) {
         switch (b) {
             case "Пеший":
@@ -30,7 +30,6 @@ public class Calculator {
                 setBetta(1.3);
         }
     }*/
-
 
     /*public void calcDuration(double duration, PersonRepository repository) {
         amount = 0;
@@ -53,11 +52,10 @@ public class Calculator {
             }
             case WOMAN: {
                 answer = ((10 * person.getWeight() + 6.25 * person.getH() - 5 * person.getAge() - 161) * A);
-              System.out.println("1: "+answer);
                 break;
             }
         }
-      System.out.println("2: "+answer);
+      System.out.println("1: "+answer);
         return answer;
     }
 
@@ -70,7 +68,7 @@ public class Calculator {
         return answer;
     }
 
-    /*public Ration numberOfRation(RationRepository repository) {
+  /*  public Ration numberOfRation(RationRepository repository) {
         int closestNumber = Integer.MAX_VALUE;
         List<Ration> rationList = repository.findAll();
         for(Ration ration : rationList) {
