@@ -22,12 +22,9 @@ public class PeopleService {
     this.calculator = calculator;
   }
 
-  public double calculateCalories(Person person) {
-    return calculator.calc(person, person.getPersonGender());
-  }
-
   @Transactional
   public void addPerson(Person person) {
+    enrichPerson(person);
     peopleRepository.save(person);
   }
 
@@ -42,5 +39,13 @@ public class PeopleService {
 
   public void deleteById(int id) {
     peopleRepository.deleteById(id);
+  }
+
+  private void enrichPerson(Person person){
+    person.setCalories(calculateCalories(person));
+  }
+
+  private double calculateCalories(Person person) {
+    return calculator.calc(person, person.getPersonGender());
   }
 }
