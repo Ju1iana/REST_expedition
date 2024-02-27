@@ -5,9 +5,13 @@
   <link rel="stylesheet" href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}">
   <title>Продовольствие</title>
 </head>
+
 <body>
 
-<div>
+
+<div class="CreatePersonModule">
+
+  <form>
 
   <input type="text" placeholder="Имя/Фамилия" id="fios">
   <input type="text" placeholder="MAN/WOMAN" id="genders">
@@ -15,11 +19,16 @@
   <input type="number" placeholder="Рост" id="heightes">
   <input type="number" placeholder="Вес" id="weightes">
 
+  </form>
+
+  <button id="fetchButtonPost" > POST (Create Person) </button>
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
 
 </div>
 
 
-<div>
+<div class="SetHikeModule">
 
   <input type="text" placeholder="Длительность похода">
 
@@ -44,20 +53,16 @@
 </div>
 
 
-<div>
+<div class="AnotherModule">
 
   <button> Calculate </button>          <!-- В ОТДЕЛЬНЫЙ БЛОК ПОМЕСТИТЬ С ВЫВОДОН ИТОГОВЫХ ДАННЫХ -->
 
   <button id="fetchButton" > GET </button>
   <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
 
-  <button id="fetchButtonPost" > POST (Create Person) </button>
-  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
-
   <button id="fetchButtonID" > GET ID </button>
   <script src="../static/js/idrequest.js" th:src="@{/js/idrequest.js}"> </script>
 </div>
-
 
 
 <div id="getContent" > </div>
