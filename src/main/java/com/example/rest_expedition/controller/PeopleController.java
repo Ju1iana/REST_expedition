@@ -74,6 +74,22 @@ public class PeopleController {
     return ResponseEntity.ok(HttpStatus.OK);
   }
 
+  @Operation(summary = "Post duration then type (hiking, skiing, mountain), then difficulty")
+  @ResponseStatus(code = HttpStatus.OK)
+  @RequestMapping(method = RequestMethod.POST, value = "/addParameters")
+  public ResponseEntity<HttpStatus> getDuration(@RequestParam int duration,
+                                                @RequestParam double type,
+                                                @RequestParam double difficulty){
+    // TODO: обработчик ошибок
+    for (int i = 0; i < 3; i++) {
+      peopleService.setDuration(duration);
+      peopleService.setType(type);
+      peopleService.setDifficulty(difficulty);
+    }
+    peopleService.setTotalCal();
+    return ResponseEntity.ok(HttpStatus.OK);
+  }
+
   @ExceptionHandler
   private ResponseEntity<PersonErrorResponse> handlerException(PersonNotFoundException e) {
     PersonErrorResponse response = new PersonErrorResponse(
