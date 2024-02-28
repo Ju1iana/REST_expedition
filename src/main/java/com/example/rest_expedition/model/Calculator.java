@@ -1,8 +1,11 @@
 package com.example.rest_expedition.model;
 
+import com.example.rest_expedition.repository.PeopleRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @Data
@@ -19,19 +22,7 @@ public class Calculator {
     private int rationCalories;
     private int rightRation;
 
-    //TODO - удалить
-/*    public void bToDouble(String b) {
-        switch (b) {
-            case "Пеший":
-                setBetta(1);
-            case "Лыжный":
-                setBetta(1.2);
-            case "Горный":
-                setBetta(1.3);
-        }
-    }*/
-
-    /*public void calcDuration(double duration, PersonRepository repository) {
+    public void calcDuration(PeopleRepository repository) {
         amount = 0;
         List<Person> people = repository.findAll();
         for (Person person : people) {
@@ -39,7 +30,7 @@ public class Calculator {
         }
         setAmount(amount * duration);
         setNumberOfPeople(people.size());
-    }*/
+    }
 
     public double calc(Person person, PersonGender pGender) {
         final double A = 1.55; // коэффициент умеренного уровня активности
@@ -55,11 +46,11 @@ public class Calculator {
                 break;
             }
         }
-      System.out.println("1: "+answer);
+      System.out.println("1: " + answer);
         return answer;
     }
 
-    public double calcAll(double betta, double gamma) {
+    public double calcAll() {
         final double a = 1.2; // коэффициент преобразования повседневной траты калорий;
         double answer = amount * betta * a * gamma;
         setAllCalories(answer);

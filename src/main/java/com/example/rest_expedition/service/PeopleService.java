@@ -37,11 +37,29 @@ public class PeopleService {
     return foundPerson.orElseThrow(PersonNotFoundException::new);
   }
 
+  @Transactional
   public void deleteById(int id) {
     peopleRepository.deleteById(id);
   }
 
-  private void enrichPerson(Person person){
+  public void setDuration(int duration) {
+    calculator.setDuration(duration);
+  }
+
+  public void setType(double type){
+    calculator.setBetta(type);
+  }
+
+  public void setDifficulty(double difficulty){
+    calculator.setGamma(difficulty);
+  }
+
+  public void setTotalCal(){
+    calculator.calcDuration(peopleRepository);
+    calculator.calcAll();
+  }
+
+  private void enrichPerson(Person person) {
     person.setCalories(calculateCalories(person));
   }
 
