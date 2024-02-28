@@ -59,6 +59,10 @@ public class PeopleService {
     calculator.calcAll();
   }
 
+  public double getTotalCal(){
+    return calculator.getAllCalories();
+  }
+
   private void enrichPerson(Person person) {
     person.setCalories(calculateCalories(person));
   }

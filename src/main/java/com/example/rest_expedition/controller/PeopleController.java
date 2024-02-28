@@ -79,15 +79,22 @@ public class PeopleController {
   @RequestMapping(method = RequestMethod.POST, value = "/addParameters")
   public ResponseEntity<HttpStatus> getDuration(@RequestParam int duration,
                                                 @RequestParam double type,
-                                                @RequestParam double difficulty){
+                                                @RequestParam double difficulty) {
     // TODO: обработчик ошибок
-    for (int i = 0; i < 3; i++) {
-      peopleService.setDuration(duration);
-      peopleService.setType(type);
-      peopleService.setDifficulty(difficulty);
-    }
+
+    peopleService.setDuration(duration);
+    peopleService.setType(type);
+    peopleService.setDifficulty(difficulty);
+
     peopleService.setTotalCal();
     return ResponseEntity.ok(HttpStatus.OK);
+  }
+
+  @Operation(summary = "Get total calories")
+  @ResponseStatus(code = HttpStatus.OK)
+  @RequestMapping(method = RequestMethod.GET, value = "/getTotalCal")
+  public double getTotalCal(){
+    return peopleService.getTotalCal();
   }
 
   @ExceptionHandler
