@@ -41,7 +41,7 @@ public class PeopleController {
   @Operation(summary = "Get all people")
   @ResponseStatus(code = HttpStatus.FOUND)
   @RequestMapping(method = RequestMethod.GET, value = "/getAllPeople")
-  public List<PersonDTO> getAllPerson() {
+  public List<PersonDTO> getAllPeople() {
     return peopleService.getAllPeople().stream()
       .map(this::convertToPersonDTO)
       .collect(Collectors.toList());
@@ -73,7 +73,6 @@ public class PeopleController {
     peopleService.deleteById(id);
     return ResponseEntity.ok(HttpStatus.OK);
   }
-
 
   @ExceptionHandler
   private ResponseEntity<PersonErrorResponse> handlerException(PersonNotFoundException e) {
