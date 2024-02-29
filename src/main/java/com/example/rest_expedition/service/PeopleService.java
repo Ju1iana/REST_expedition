@@ -39,7 +39,10 @@ public class PeopleService {
 
   @Transactional
   public void deleteById(int id) {
-    peopleRepository.deleteById(id);
+    Optional<Person> foundPerson = Optional.ofNullable(peopleRepository.findById(id));
+    if (foundPerson.isPresent())
+      peopleRepository.deleteById(id);
+    else throw new PersonNotFoundException();
   }
 
   public void setDuration(int duration) {
