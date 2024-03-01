@@ -19,8 +19,8 @@ ButtonPostehike3.addEventListener('click', () => {
         formData.append('difficulty', value3)
 
         if (value1 < one) {
-            console.log('Неверные данные');
-            alert('Неверные данные')
+            console.log('Ошибка');
+            alert('Неверная длительность похода')
         } else {
 
             let response = await fetch('http://localhost:8080/addParameters', {
