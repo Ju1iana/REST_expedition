@@ -1,25 +1,24 @@
 package com.example.rest_expedition.service;
 
-import com.example.rest_expedition.model.Calculator;
+import com.example.rest_expedition.model.PersonCalculator;
 import com.example.rest_expedition.model.Person;
 import com.example.rest_expedition.repository.PeopleRepository;
 import com.example.rest_expedition.util.PersonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PeopleService {
   private final PeopleRepository peopleRepository;
-  private final Calculator calculator;
+  private final PersonCalculator personCalculator;
 
   @Autowired
-  public PeopleService(PeopleRepository repository, Calculator calculator) {
+  public PeopleService(PeopleRepository repository, PersonCalculator calculator) {
     this.peopleRepository = repository;
-    this.calculator = calculator;
+    this.personCalculator = calculator;
   }
 
   @Transactional
@@ -39,24 +38,31 @@ public class PeopleService {
 
   @Transactional
   public void deleteById(int id) {
-    peopleRepository.deleteById(id);
+    Optional<Person> foundPerson = Optional.ofNullable(peopleRepository.findById(id));
+    if (foundPerson.isPresent())
+      peopleRepository.deleteById(id);
+    else throw new PersonNotFoundException();
   }
 
   public void setDuration(int duration) {
-    calculator.setDuration(duration);
+    personCalculator.setDuration(duration);
   }
 
   public void setType(double type){
-    calculator.setBetta(type);
+    personCalculator.setBetta(type);
   }
 
   public void setDifficulty(double difficulty){
-    calculator.setGamma(difficulty);
+    personCalculator.setGamma(difficulty);
   }
 
   public void setTotalCal(){
-    calculator.calcDuration(peopleRepository);
-    calculator.calcAll();
+    personCalculator.calcUsualCalories(peopleRepository); // считает обычные калории на все дни похода
+    personCalculator.calcHikingCalories(); // считает итоговые калории на весь поход
+  }
+
+  public double getTotalCal(){
+    return personCalculator.getAllCalories();
   }
 
   private void enrichPerson(Person person) {
@@ -64,6 +70,6 @@ public class PeopleService {
   }
 
   private double calculateCalories(Person person) {
-    return calculator.calc(person, person.getPersonGender());
+    return personCalculator.calc(person, person.getPersonGender());
   }
 }

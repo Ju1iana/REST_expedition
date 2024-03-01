@@ -2,12 +2,12 @@ package com.example.rest_expedition.controller;
 
 import com.example.rest_expedition.dto.PersonDTO;
 import com.example.rest_expedition.model.Person;
+import com.example.rest_expedition.model.PersonCalculator;
 import com.example.rest_expedition.service.PeopleService;
-import com.example.rest_expedition.util.PersonErrorResponse;
-import com.example.rest_expedition.util.PersonNotCreatedException;
-import com.example.rest_expedition.util.PersonNotFoundException;
+import com.example.rest_expedition.util.*;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class PeopleController {
   private final PeopleService peopleService;
   private final ModelMapper modelMapper;
 
-  public PeopleController(PeopleService peopleService, ModelMapper modelMapper) {
+  public PeopleController(PeopleService peopleService, PersonCalculator personCalculator, ModelMapper modelMapper) {
     this.peopleService = peopleService;
     this.modelMapper = modelMapper;
   }
@@ -77,35 +77,24 @@ public class PeopleController {
   @Operation(summary = "Post duration then type (hiking, skiing, mountain), then difficulty")
   @ResponseStatus(code = HttpStatus.OK)
   @RequestMapping(method = RequestMethod.POST, value = "/addParameters")
-  public ResponseEntity<HttpStatus> getDuration(@RequestParam int duration,
-                                                @RequestParam double type,
-                                                @RequestParam double difficulty){
-    // TODO: обработчик ошибок
-    for (int i = 0; i < 3; i++) {
+  public ResponseEntity<HttpStatus> addDuration(@RequestParam @Min(1) int duration,
+                                            @RequestParam double type,
+                                            @RequestParam double difficulty) {
+
+      // TODO: если понадобится, то сделать обработку ошибки
       peopleService.setDuration(duration);
       peopleService.setType(type);
       peopleService.setDifficulty(difficulty);
-    }
-    peopleService.setTotalCal();
-    return ResponseEntity.ok(HttpStatus.OK);
+
+      peopleService.setTotalCal();
+      return ResponseEntity.ok(HttpStatus.OK);
   }
 
-  @ExceptionHandler
-  private ResponseEntity<PersonErrorResponse> handlerException(PersonNotFoundException e) {
-    PersonErrorResponse response = new PersonErrorResponse(
-      "Person with this ID wasn't found!",
-      System.currentTimeMillis()
-    );
-    return new ResponseEntity<>(response, HttpStatus.NOT_FOUND); // NOT_FOUND - 404
-  }
-
-  @ExceptionHandler
-  private ResponseEntity<PersonErrorResponse> handlerException(PersonNotCreatedException e) {
-    PersonErrorResponse response = new PersonErrorResponse(
-      e.getMessage(),
-      System.currentTimeMillis()
-    );
-    return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST); // BAD_REQUEST - 400
+  @Operation(summary = "Get total calories")
+  @ResponseStatus(code = HttpStatus.OK)
+  @RequestMapping(method = RequestMethod.GET, value = "/getTotalCal")
+  public double getTotalCal() {
+    return peopleService.getTotalCal();
   }
 
   public Person convertToPerson(PersonDTO personDTO) {
