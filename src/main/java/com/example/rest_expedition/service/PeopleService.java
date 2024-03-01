@@ -13,12 +13,12 @@ import java.util.Optional;
 @Service
 public class PeopleService {
   private final PeopleRepository peopleRepository;
-  private final PersonCalculator calculator;
+  private final PersonCalculator personCalculator;
 
   @Autowired
   public PeopleService(PeopleRepository repository, PersonCalculator calculator) {
     this.peopleRepository = repository;
-    this.calculator = calculator;
+    this.personCalculator = calculator;
   }
 
   @Transactional
@@ -45,24 +45,24 @@ public class PeopleService {
   }
 
   public void setDuration(int duration) {
-    calculator.setDuration(duration);
+    personCalculator.setDuration(duration);
   }
 
   public void setType(double type){
-    calculator.setBetta(type);
+    personCalculator.setBetta(type);
   }
 
   public void setDifficulty(double difficulty){
-    calculator.setGamma(difficulty);
+    personCalculator.setGamma(difficulty);
   }
 
   public void setTotalCal(){
-    calculator.calcDuration(peopleRepository);
-    calculator.calcAll();
+    personCalculator.calcUsualCalories(peopleRepository); // считает обычные калории на все дни похода
+    personCalculator.calcHikingCalories(); // считает итоговые калории на весь поход
   }
 
   public double getTotalCal(){
-    return calculator.getAllCalories();
+    return personCalculator.getAllCalories();
   }
 
   private void enrichPerson(Person person) {
@@ -70,6 +70,6 @@ public class PeopleService {
   }
 
   private double calculateCalories(Person person) {
-    return calculator.calc(person, person.getPersonGender());
+    return personCalculator.calc(person, person.getPersonGender());
   }
 }

@@ -2,6 +2,7 @@ package com.example.rest_expedition.controller;
 
 import com.example.rest_expedition.dto.PersonDTO;
 import com.example.rest_expedition.model.Person;
+import com.example.rest_expedition.model.PersonCalculator;
 import com.example.rest_expedition.service.PeopleService;
 import com.example.rest_expedition.util.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,7 +26,7 @@ public class PeopleController {
   private final PeopleService peopleService;
   private final ModelMapper modelMapper;
 
-  public PeopleController(PeopleService peopleService, ModelMapper modelMapper) {
+  public PeopleController(PeopleService peopleService, PersonCalculator personCalculator, ModelMapper modelMapper) {
     this.peopleService = peopleService;
     this.modelMapper = modelMapper;
   }

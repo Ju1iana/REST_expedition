@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-  // вывести продукты только на завтрак
+  // вывести продукты только на обед
 
      @Query(value = "SELECT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
     "product_proteins, product_fats, product_carbohydrates, product_digestibility_percentage\n" +

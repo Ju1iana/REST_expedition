@@ -20,6 +20,7 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  // только на обед
   public List<Product> getProductsByType(){
     return productRepository.getProductByType();
   }

@@ -56,4 +56,4 @@ from Person
 where id = 5;
 
 DROP TABLE Person;
-DROP TABLE Ration;
+

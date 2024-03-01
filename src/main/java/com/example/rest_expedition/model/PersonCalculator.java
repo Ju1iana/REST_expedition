@@ -4,9 +4,9 @@ import com.example.rest_expedition.repository.PeopleRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
+// ебёмся с обычными и походными калориями
 @Component
 @Data
 @NoArgsConstructor
@@ -14,24 +14,12 @@ public class PersonCalculator {
   private static double amount;
   private static double allCalories; // total answer
   private double betta; // коэффициент вида похода, для пешего 1, для лыжного 1.2, для горного 1.3
-  private double gamma; // коэффициент сложности (категории) похода, 1 для первой категории, 1.1 для второй, 1.2 для третьей и т.д
+  private double gamma; // коэффициент сложности (категории) похода
 
   private int duration;
   private static int numberOfPeople;
-  private int rationWeight;
-  private int rationCalories;
-  private int rightRation;
 
-  public void calcDuration(PeopleRepository repository) {
-    amount = 0;
-    List<Person> people = repository.findAll();
-    for (Person person : people) {
-      amount += person.getCalories();
-    }
-    setAmount(amount * duration);
-    setNumberOfPeople(people.size());
-  }
-
+  // расчёт обычных калорий на добавленного человека (для таблицы)
   public double calc(Person person, PersonGender pGender) {
     final double A = 1.55; // коэффициент умеренного уровня активности
     double answer = 0;
@@ -48,31 +36,30 @@ public class PersonCalculator {
     return answer;
   }
 
-  public double calcAll() {
+  // расчёт обычных калорий на весь поход
+  public void calcUsualCalories(PeopleRepository repository) {
+    amount = 0;
+    List<Person> people = repository.findAll();
+    for (Person person : people) {
+      amount += person.getCalories();
+    }
+    setAmount(amount * duration);
+    setNumberOfPeople(people.size());
+
+    /*// просто считает калории для каждого человека и выводит в консоль
+    for (int i = 0; i < people.size(); i++) {
+      System.out.println((i+1) + ": " + people.get(i).getCalories() * betta * gamma * 1.2 * duration);
+    }*/
+  }
+
+  // расчёт походных калорий
+  public void calcHikingCalories() {
     final double a = 1.2; // коэффициент преобразования повседневной траты калорий;
     double answer = amount * betta * a * gamma;
     setAllCalories(answer);
-    System.out.println("calcAll()" + "betta: " + betta + "gamma: " + gamma);
+    System.out.println("calcHikingCalories() " + "betta: " + betta + "gamma: " + gamma);
     System.out.println("answer: " + answer + "amount: " + amount);
-    return answer;
   }
-
-  /*  public Ration numberOfRation(RationRepository repository) {
-        int closestNumber = Integer.MAX_VALUE;
-        List<Ration> rationList = repository.findAll();
-        for(Ration ration : rationList) {
-            int result = ration.getCalories() * duration * numberOfPeople;
-            if (Math.abs(result - allCalories) < Math.abs(closestNumber - allCalories)) {
-                closestNumber = result;
-                rightRation = ration.getId();
-                System.out.println(allCalories + " - " + "closet number: " + closestNumber +
-                        ", calories: " + ration.getCalories() + ", ID: " + ration.getId());
-            }
-        }
-        setRightRation(rightRation);
-        System.out.println("---- YOUR RATION: #" + getRightRation() + " ---- Number of people: " + numberOfPeople);
-        return repository.findById(rightRation);
-    }*/
 
   public double getAmount() {
     return amount;
