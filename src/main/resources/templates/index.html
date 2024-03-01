@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Продовольствие</title>
+</head>
+
+<body>
+
+
+<div class="CreatePersonModule">
+
+  <form>
+
+  <input type="text" placeholder="Имя/Фамилия" id="fios">
+  <input type="text" placeholder="MAN/WOMAN" id="genders">
+  <input type="number" placeholder="Возраст" id="ages">
+  <input type="number" placeholder="Рост" id="heightes">
+  <input type="number" placeholder="Вес" id="weightes">
+
+  </form>
+
+  <button id="fetchButtonPost" > POST (Create Person) </button>
+  <script src="../static/js/postquest.js" th:src="@{/js/postquest.js}"> </script>
+
+
+</div>
+
+
+
+<p>
+</p>
+
+
+
+
+<div class="SetHikeModule">
+
+  <form>
+
+  <input type="number" placeholder="Длительность похода"  id="hikeduration" min="1" max="99" required>
+
+  <select id="typeofhike">
+    <option type="number" value= "1"   id="wal">Пеший</option>
+    <option type="number" value= "1.2" id="ski">Лыжный</option>
+    <option type="number" value= "1.3" id="hik">Горный</option>
+  </select>
+
+  <select id="categoryofhike">
+    <option type="number" value="1"     >Первая Категория</option>
+    <option type="number" value="1.1"   >Вторая Категория</option>
+    <option type="number" value="1.2"   >Третья Категория</option>
+    <option type="number" value="1.35"  >Четвёртая Категория</option>
+    <option type="number" value="1.455" >Пятая Категория</option>
+    <option type="number" value="1.615" >Шестая Категория</option>
+    <option type="number" value="1.945" >Седьмая Категория</option>
+  </select>
+
+  </form>
+
+  <button id="ButtonPostHike"> POST (Set Hike) </button>
+  <script src="../static/js/hikequest.js" th:src="@{/js/hikequest.js}"> </script>
+
+
+
+</div>
+
+
+
+<p>
+</p>
+
+
+
+<div class="AnotherModule">
+
+  <button> Calculate </button>          <!-- В ОТДЕЛЬНЫЙ БЛОК ПОМЕСТИТЬ С ВЫВОДОН ИТОГОВЫХ ДАННЫХ -->
+
+  <button id="fetchButton" > GET </button>
+  <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
+
+  <button id="fetchButtonID" > GET ID </button>
+  <script src="../static/js/idrequest.js" th:src="@{/js/idrequest.js}"> </script>
+
+</div>
+
+
+<p>
+</p>
+
+
+
+<div id="getContent" > </div>
+
+<table id="DataTable"></table>
+
+
+</body>
+</html>
+
