@@ -1,7 +1,7 @@
+const ButtonPoste2 = document.getElementById('fetchButtonPost');
 
-const ButtonPoste = document.getElementById('fetchButtonPost');
+ButtonPoste2.addEventListener('click', () => {
 
-ButtonPoste.addEventListener('click', () => {
 
     async function postResponse() {
         var inputElement1 = document.getElementById("fios");
@@ -34,4 +34,61 @@ ButtonPoste.addEventListener('click', () => {
 
     }
     postResponse()
+
+
+
+    async function getResponse() {
+        let response = await fetch('http://localhost:8080/getAllPeople', {
+            mode: 'no-cors'
+        })
+
+        var data = await response.json()
+        console.log(content)
+        console.log(response.status)
+        document.getElementById('getContent').innerText = JSON.stringify(data, null, 3);
+
+    }
+    setTimeout(getResponse,1000);
+
+
+
+    /*var data = [{
+        "Total": 34,
+        "Version": "1.0.4",
+        "Office": "New York"
+    }, {
+        "Total": 67,
+        "Version": "1.1.0",
+        "Office": "Paris"
+    }];
+
+    drawTable(data);
+
+    function drawTable(data) {
+
+        // Get Table headers and print
+        var head = $("<tr />")
+        $("#DataTable").append(head);
+        for (var j = 0; j < Object.keys(data[0]).length; j++) {
+            head.append($("<th>" + Object.keys(data[0])[j] + "</th>"));
+        }
+
+        // Print the content of rows in DataTable
+        for (var i = 0; i < data.length; i++) {
+            drawRow(data[i]);
+        }
+
+    }
+
+    function drawRow(rowData) {
+        var row = $("<tr />")
+        $("#DataTable").append(row);
+        row.append($("<td>" + rowData["Total"] + "</td>"));
+        row.append($("<td>" + rowData["Version"] + "</td>"));
+        row.append($("<td>" + rowData["Office"] + "</td>"));
+    }*/
+
+
 })
+
+

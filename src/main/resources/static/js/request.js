@@ -10,10 +10,10 @@ Buttonget.addEventListener('click', () => {
         let content = await response.json()
         console.log(content)
         console.log(response.status)
-        document.getElementById('getContent').innerText = JSON.stringify(content, null, 2);
-
+        document.getElementById('getContent').innerText = JSON.stringify(content, null, 3);
 
     }
     getResponse()
+
 })
 
