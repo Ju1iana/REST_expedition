@@ -1,23 +1,22 @@
 package com.example.rest_expedition.service;
 
-import com.example.rest_expedition.model.Calculator;
+import com.example.rest_expedition.model.PersonCalculator;
 import com.example.rest_expedition.model.Person;
 import com.example.rest_expedition.repository.PeopleRepository;
 import com.example.rest_expedition.util.PersonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PeopleService {
   private final PeopleRepository peopleRepository;
-  private final Calculator calculator;
+  private final PersonCalculator calculator;
 
   @Autowired
-  public PeopleService(PeopleRepository repository, Calculator calculator) {
+  public PeopleService(PeopleRepository repository, PersonCalculator calculator) {
     this.peopleRepository = repository;
     this.calculator = calculator;
   }

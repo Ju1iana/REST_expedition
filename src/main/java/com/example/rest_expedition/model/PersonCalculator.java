@@ -1,10 +1,6 @@
 package com.example.rest_expedition.model;
 
 import com.example.rest_expedition.repository.PeopleRepository;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,7 +10,7 @@ import java.util.List;
 @Component
 @Data
 @NoArgsConstructor
-public class Calculator {
+public class PersonCalculator {
   private static double amount;
   private static double allCalories; // total answer
   private double betta; // коэффициент вида похода, для пешего 1, для лыжного 1.2, для горного 1.3
@@ -78,7 +74,7 @@ public class Calculator {
         return repository.findById(rightRation);
     }*/
 
-  public static double getAmount() {
+  public double getAmount() {
     return amount;
   }
 
@@ -86,20 +82,20 @@ public class Calculator {
     amount = v;
   }
 
-  public static double getAllCalories() {
+  public double getAllCalories() {
     return allCalories;
   }
 
-  public static void setAllCalories(double allCalories) {
-    Calculator.allCalories = allCalories;
+  public void setAllCalories(double allCalories) {
+    PersonCalculator.allCalories = allCalories;
   }
 
-  public static int getNumberOfPeople() {
+  public int getNumberOfPeople() {
     return numberOfPeople;
   }
 
-  public static void setNumberOfPeople(int numberOfPeople) {
-    Calculator.numberOfPeople = numberOfPeople;
+  public void setNumberOfPeople(int numberOfPeople) {
+    PersonCalculator.numberOfPeople = numberOfPeople;
   }
 }
 
