@@ -30,12 +30,17 @@ ButtonPostehike3.addEventListener('click', () => {
 
             let result = await response.json();
             console.log(result)
+
         }
     }
 
     postHikeResponse()
 
+    function clearduration() {
+        document.getElementById('putin2').reset();
+    }
 
+    setTimeout(clearduration, 1000);
 
 
 })

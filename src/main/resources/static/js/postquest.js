@@ -46,6 +46,8 @@ ButtonPoste3.addEventListener('click', () => {
 
                     let result = await response.json();
                     console.log(result)
+
+
                 }
             }
         }
@@ -53,7 +55,10 @@ ButtonPoste3.addEventListener('click', () => {
     }
     postResponse()
 
-
+    function clearPlaceholders() {
+        document.getElementById('putin').reset();
+    }
+    clearPlaceholders()
 
     async function getResponse() {
         var response = await fetch('http://localhost:8080/getAllPeople', {
@@ -65,6 +70,8 @@ ButtonPoste3.addEventListener('click', () => {
         console.log(response.status)
 /*        document.getElementById('getContent').innerText = JSON.stringify(content, null, 3);*/
 
+        var tableContainer = document.getElementById("DataTable");
+        tableContainer.innerHTML = "";
 
         var head = $("<tr />")
         $("#DataTable").append(head);

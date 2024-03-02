@@ -1,3 +1,4 @@
+/*
 const Buttonget1 = document.getElementById('fetchButton');
 
 Buttonget1.addEventListener('click', () => {
@@ -11,7 +12,6 @@ Buttonget1.addEventListener('click', () => {
         var data = await response.json()
         console.log(data)
         console.log(response.status)
-        /*        document.getElementById('getContent').innerText = JSON.stringify(content, null, 3);*/
 
 
         var head = $("<tr />")
@@ -45,3 +45,4 @@ Buttonget1.addEventListener('click', () => {
 
 })
 
+*/

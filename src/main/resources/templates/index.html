@@ -12,7 +12,7 @@
 
 <div class="CreatePersonModule">
 
-  <form>
+  <form id="putin">
 
   <input type="text" placeholder="Имя/Фамилия" id="fios">
   <input type="text" placeholder="MAN/WOMAN" id="genders">
@@ -38,9 +38,9 @@
 
 <div class="SetHikeModule">
 
-  <form>
+  <form id="putin2">
 
-  <input type="number" placeholder="Длительность похода"  id="hikeduration" min="1" max="99" required>
+  <input type="number" placeholder="Длительность похода"  id="hikeduration" min="1" max="99">
 
   <select id="typeofhike">
     <option type="number" value= "1"   id="wal">Пеший</option>
@@ -75,8 +75,6 @@
 
 
 <div class="AnotherModule">
-
-  <button> Calculate </button>          <!-- В ОТДЕЛЬНЫЙ БЛОК ПОМЕСТИТЬ С ВЫВОДОН ИТОГОВЫХ ДАННЫХ -->
 
   <button id="fetchButton" > GET </button>
   <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
