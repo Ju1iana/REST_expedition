@@ -12,4 +12,10 @@ public class WebController {
   public String indexPage() {
     return "index";
   }
+
+  @GetMapping("/contact")
+  public String contactPage() {
+    return "contact";
+  }
+
 }
