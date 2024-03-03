@@ -21,7 +21,7 @@ public class MailController {
 
   @Operation(summary = "Send email")
   @ResponseStatus(HttpStatus.OK)
-  @RequestMapping(method = RequestMethod.POST, value = "/addName")
+  @RequestMapping(method = RequestMethod.POST, value = "/sendEmail")
   public void addMessage(@RequestParam String name,
                          @RequestParam @Email String email,
                          @RequestParam String msg){
