@@ -25,4 +25,13 @@ public class GlobalExceptionHandler {
     );
     return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST); // BAD_REQUEST - 400
   }
+
+  @ExceptionHandler
+  private ResponseEntity<PersonErrorResponse> handlerException(IncorrectEmailAddress e) {
+    PersonErrorResponse response = new PersonErrorResponse(
+      e.getMessage(),
+      System.currentTimeMillis()
+    );
+    return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST); // BAD_REQUEST - 400
+  }
 }

@@ -44,7 +44,7 @@ public class SendMail implements IMail {
     simpleMailMessage.setTo(to);
     simpleMailMessage.setSubject("GoTravel");
     simpleMailMessage.setText("Здравствуйте, " + name + "! Ваше обращение было успешно отправлено. В ближайшее время мы обязательно свяжемся с вами! \n" +
-      "Всего наилучшего от команды GoTravel :)");
+      "\nВсего наилучшего от команды GoTravel :)");
 
     try {
       mailSender.send(simpleMailMessage);
