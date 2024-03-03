@@ -21,7 +21,7 @@ public class SendMail implements IMail {
     simpleMailMessage.setFrom("${spring.mail.username}");
 
     simpleMailMessage.setTo("uluana.pankratova@gmail.com");
-    simpleMailMessage.setTo("greysaboter@gmail.com");
+    /*simpleMailMessage.setTo("greysaboter@gmail.com");*/
 
     simpleMailMessage.setText(
       "Имя отправителя: " + name + "\n" +
@@ -43,7 +43,7 @@ public class SendMail implements IMail {
     simpleMailMessage.setFrom("${spring.mail.username}");
     simpleMailMessage.setTo(to);
     simpleMailMessage.setSubject("GoTravel");
-    simpleMailMessage.setText("Здравствуйте, " + name + "! Ваше письмо было успешно отправлено. В ближайшее время мы обязательно свяжемся с вами! \n" +
+    simpleMailMessage.setText("Здравствуйте, " + name + "! Ваше обращение было успешно отправлено. В ближайшее время мы обязательно свяжемся с вами! \n" +
       "Всего наилучшего от команды GoTravel :)");
 
     try {
