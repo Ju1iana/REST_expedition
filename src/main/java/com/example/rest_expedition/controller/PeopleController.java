@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -74,6 +75,7 @@ public class PeopleController {
     return ResponseEntity.ok(HttpStatus.OK);
   }
 
+  @Validated // Возможно надо будет удалить. Было добавлено до c46e7767 tuchka <u.pankratova@internet.ru> on 03.03.2024 at 20:11
   @Operation(summary = "Post duration then type (hiking, skiing, mountain), then difficulty")
   @ResponseStatus(code = HttpStatus.OK)
   @RequestMapping(method = RequestMethod.POST, value = "/addParameters")

@@ -9,7 +9,8 @@ public class MailDTO {
   private String senderName;
 
   @Email
-  @Pattern(regexp = "\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}")
+  @Pattern(regexp = "\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}",
+    message = "Ваш формат email не соответствует формату электронной почты")
   private String email;
   private String text;
 }
