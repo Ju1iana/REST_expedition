@@ -1,9 +1,9 @@
 package com.example.rest_expedition.controller;
 
 import com.example.rest_expedition.dto.ProductDTO;
-import com.example.rest_expedition.model.PersonCalculator;
+import com.example.rest_expedition.service.PersonCalculator;
 import com.example.rest_expedition.model.Product;
-import com.example.rest_expedition.model.ProductCalculator;
+import com.example.rest_expedition.service.ProductCalculator;
 import com.example.rest_expedition.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.modelmapper.ModelMapper;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "pg3.sweb.ru")
 public class ProductController {
   private final PersonCalculator personCalculator;
   private final ProductCalculator productCalculator;

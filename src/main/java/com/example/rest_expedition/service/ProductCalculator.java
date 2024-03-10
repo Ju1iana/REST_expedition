@@ -1,11 +1,11 @@
-package com.example.rest_expedition.model;
+package com.example.rest_expedition.service;
 
+import com.example.rest_expedition.model.Person;
 import com.example.rest_expedition.repository.PeopleRepository;
 import com.example.rest_expedition.repository.ProductRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // работаем только с походными калориями

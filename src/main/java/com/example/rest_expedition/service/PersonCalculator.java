@@ -1,5 +1,7 @@
-package com.example.rest_expedition.model;
+package com.example.rest_expedition.service;
 
+import com.example.rest_expedition.model.Person;
+import com.example.rest_expedition.model.PersonGender;
 import com.example.rest_expedition.repository.PeopleRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -2,7 +2,7 @@ package com.example.rest_expedition.controller;
 
 import com.example.rest_expedition.dto.PersonDTO;
 import com.example.rest_expedition.model.Person;
-import com.example.rest_expedition.model.PersonCalculator;
+import com.example.rest_expedition.service.PersonCalculator;
 import com.example.rest_expedition.service.PeopleService;
 import com.example.rest_expedition.util.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "pg3.sweb.ru")
 public class PeopleController {
 
   private final PeopleService peopleService;

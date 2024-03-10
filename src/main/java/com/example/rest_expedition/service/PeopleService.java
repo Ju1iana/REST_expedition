@@ -1,6 +1,5 @@
 package com.example.rest_expedition.service;
 
-import com.example.rest_expedition.model.PersonCalculator;
 import com.example.rest_expedition.model.Person;
 import com.example.rest_expedition.repository.PeopleRepository;
 import com.example.rest_expedition.util.PersonNotFoundException;
