@@ -19,8 +19,8 @@ ButtonPostehike3.addEventListener('click', () => {
         formData.append('difficulty', value3)
 
         if (value1 < one) {
-            console.log('Неверные данные');
-            alert('Неверные данные')
+            console.log('Ошибка');
+            alert('Неверная длительность похода')
         } else {
 
             let response = await fetch('http://localhost:8080/addParameters', {
@@ -30,12 +30,17 @@ ButtonPostehike3.addEventListener('click', () => {
 
             let result = await response.json();
             console.log(result)
+
         }
     }
 
     postHikeResponse()
 
+    function clearduration() {
+        document.getElementById('putin2').reset();
+    }
 
+    setTimeout(clearduration, 1000);
 
 
 })

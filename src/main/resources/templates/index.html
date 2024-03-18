@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <title>Продовольствие</title>
 </head>
 
@@ -12,7 +15,7 @@
 
 <div class="CreatePersonModule">
 
-  <form>
+  <form id="putin">
 
   <input type="text" placeholder="Имя/Фамилия" id="fios">
   <input type="text" placeholder="MAN/WOMAN" id="genders">
@@ -38,9 +41,9 @@
 
 <div class="SetHikeModule">
 
-  <form>
+  <form id="putin2">
 
-  <input type="number" placeholder="Длительность похода"  id="hikeduration" min="1" max="99" required>
+  <input type="number" placeholder="Длительность похода"  id="hikeduration" min="1" max="99">
 
   <select id="typeofhike">
     <option type="number" value= "1"   id="wal">Пеший</option>
@@ -76,10 +79,6 @@
 
 <div class="AnotherModule">
 
-  <button> Calculate </button>          <!-- В ОТДЕЛЬНЫЙ БЛОК ПОМЕСТИТЬ С ВЫВОДОН ИТОГОВЫХ ДАННЫХ -->
-
-  <button id="fetchButton" > GET </button>
-  <script src="../static/js/request.js" th:src="@{/js/request.js}"> </script>
 
   <button id="fetchButtonID" > GET ID </button>
   <script src="../static/js/idrequest.js" th:src="@{/js/idrequest.js}"> </script>
@@ -92,9 +91,8 @@
 
 
 
-<div id="getContent" > </div>
 
-<table id="DataTable"></table>
+<table class="DataTable" id="DataTable"></table>
 
 
 </body>

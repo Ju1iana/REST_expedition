@@ -1,0 +1,22 @@
+.DataTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.DataTable td, .peopleTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.DataTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.DataTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.DataTable tr:hover {
+    background-color: #f5f5f5;
+}
