@@ -14,9 +14,4 @@ public class RestExpeditionApplication {
   public static void main(String[] args) {
     SpringApplication.run(RestExpeditionApplication.class, args);
   }
-
-  @Bean
-  public ModelMapper modelMapper(){
-    return new ModelMapper();
-  }
 }

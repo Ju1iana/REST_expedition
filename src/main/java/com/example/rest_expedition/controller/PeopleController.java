@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "pg3.sweb.ru")
 public class PeopleController {
 
   private final PeopleService peopleService;

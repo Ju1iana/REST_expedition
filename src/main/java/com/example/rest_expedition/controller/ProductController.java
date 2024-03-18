@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "pg3.sweb.ru")
 public class ProductController {
   private final PersonCalculator personCalculator;
   private final ProductCalculator productCalculator;

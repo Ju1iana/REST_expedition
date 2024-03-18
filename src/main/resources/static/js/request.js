@@ -3,7 +3,7 @@ const Buttonget = document.getElementById('fetchButton');
 Buttonget.addEventListener('click', () => {
 
     async function getResponse() {
-        let response = await fetch('http://localhost:8080/getAllPeople',{
+        let response = await fetch('http://77.222.53.207:8080/getAllPeople',{
             mode: 'no-cors',
         })
 
@@ -14,6 +14,5 @@ Buttonget.addEventListener('click', () => {
 
     }
     getResponse()
-
 })
 
