@@ -91,6 +91,14 @@ public class PeopleController {
       return ResponseEntity.ok(HttpStatus.OK);
   }
 
+  @Operation(summary = "Partial update by id")
+  @ResponseStatus(code = HttpStatus.ACCEPTED)
+  @PatchMapping("/update")
+  public void updatePerson(@RequestParam("id") int id,
+                         @RequestBody (required = false) PersonDTO personDTO){
+    peopleService.updateById(id, personDTO);
+  }
+
   @Operation(summary = "Get total calories")
   @ResponseStatus(code = HttpStatus.OK)
   @RequestMapping(method = RequestMethod.GET, value = "/getTotalCal")

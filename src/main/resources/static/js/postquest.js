@@ -36,7 +36,7 @@ ButtonPoste3.addEventListener('click', () => {
                     alert('Неверный вес')
                 } else {
 
-                    let response = await fetch('http://localhost:8080/addPerson', {
+                    let response = await fetch('http://77.222.53.207:8080/addPerson', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json;charset=utf-8'
@@ -61,7 +61,7 @@ ButtonPoste3.addEventListener('click', () => {
     clearPlaceholders()
 
     async function getResponse() {
-        var response = await fetch('http://localhost:8080/getAllPeople', {
+        var response = await fetch('http://77.222.53.207:8080/getAllPeople', {
             mode: 'no-cors'
         })
 
@@ -88,14 +88,16 @@ ButtonPoste3.addEventListener('click', () => {
     setTimeout(getResponse,1000);
 
 
-    function drawRow(rowData) {
-        var row = $("<tr />")
-        $("#DataTable").append(row);
-        row.append($("<td>" + rowData["fio"] + "</td>"));
-        row.append($("<td>" + rowData["personGender"] + "</td>"));
-        row.append($("<td>" + rowData["age"] + "</td>"));
-        row.append($("<td>" + rowData["h"] + "</td>"));
-        row.append($("<td>" + rowData["weight"] + "</td>"));
-    }
+  function drawRow(rowData) {
+    var row = $("<tr />")
+    $("#DataTable").append(row);
+    row.append($("<td>" + rowData["id"] + "</td>"));
+    row.append($("<td>" + rowData["fio"] + "</td>"));
+    row.append($("<td>" + rowData["personGender"] + "</td>"));
+    row.append($("<td>" + rowData["age"] + "</td>"));
+    row.append($("<td>" + rowData["h"] + "</td>"));
+    row.append($("<td>" + rowData["weight"] + "</td>"));
+    row.append($("<td>" + rowData["calories"] + "</td>"));
+  }
 
 })
