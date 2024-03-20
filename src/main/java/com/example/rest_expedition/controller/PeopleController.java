@@ -66,9 +66,6 @@ public class PeopleController {
     return ResponseEntity.ok(HttpStatus.OK);
   }
 
-  //ор
-
-
   @Operation(summary = "Delete person by id")
   @ResponseStatus(code = HttpStatus.OK)
   @RequestMapping(method = RequestMethod.DELETE, value = "/deletePersonById")
