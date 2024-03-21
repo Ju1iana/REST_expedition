@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -96,7 +95,7 @@ public class PeopleController {
   @PatchMapping("/update")
   public void updatePerson(@RequestParam("id") int id,
                          @RequestBody (required = false) PersonDTO personDTO){
-    peopleService.updateById(id, personDTO);
+    peopleService.updateById(id, convertToPerson(personDTO));
   }
 
   @Operation(summary = "Get total calories")
