@@ -20,9 +20,19 @@ public class ProductService {
     return productRepository.findAll();
   }
 
-  // только на обед
-  public List<Product> getProductsByType(){
-    return productRepository.getProductByType();
+  public void getTypeMealBreakfast(){
+    productRepository.getBreakfast();
   }
 
+  public void getTypeMealSnack(){
+    productRepository.getSnack();
+  }
+
+  public void getTypeMealLunch(){
+    productRepository.getLunch();
+  }
+
+  public void getTypeMealDinner(){
+    productRepository.getDinner();
+  }
 }
