@@ -12,11 +12,35 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
   // вывести продукты только на обед
 
-     @Query(value = "SELECT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
+  @Query(value = "SELECT DISTINCT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
     "product_proteins, product_fats, product_carbohydrates, product_digestibility_percentage\n" +
     "FROM mix m\n" +
     "         JOIN Products p ON m.product_id = p.product_id\n" +
     "         JOIN Product_types mt ON m.type_id = mt.type_id\n" +
-    "WHERE m.type_id = 2",nativeQuery = true)
-  List<Product> getProductByType();
+    "WHERE m.type_id = 2", nativeQuery = true)
+  List<Product> getLunch();
+
+  @Query(value = "SELECT DISTINCT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
+    "product_proteins, product_fats, product_carbohydrates, product_digestibility_percentage\n" +
+    "FROM mix m\n" +
+    "         JOIN Products p ON m.product_id = p.product_id\n" +
+    "         JOIN Product_types mt ON m.type_id = mt.type_id\n" +
+    "WHERE m.type_id = 1", nativeQuery = true)
+  List<Product> getBreakfast();
+
+  @Query(value = "SELECT DISTINCT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
+    "product_proteins, product_fats, product_carbohydrates, product_digestibility_percentage\n" +
+    "FROM mix m\n" +
+    "         JOIN Products p ON m.product_id = p.product_id\n" +
+    "         JOIN Product_types mt ON m.type_id = mt.type_id\n" +
+    "WHERE m.type_id = 3", nativeQuery = true)
+  List<Product> getDinner();
+
+  @Query(value = "SELECT DISTINCT p.product_id, product_name, product_calories_per_100g, product_daily_norm_per_person," +
+    "product_proteins, product_fats, product_carbohydrates, product_digestibility_percentage\n" +
+    "FROM mix m\n" +
+    "         JOIN Products p ON m.product_id = p.product_id\n" +
+    "         JOIN Product_types mt ON m.type_id = mt.type_id\n" +
+    "WHERE m.type_id = 4", nativeQuery = true)
+  List<Product> getSnack();
 }

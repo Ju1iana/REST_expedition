@@ -45,12 +45,12 @@ public class PeopleService {
     else throw new PersonNotFoundException();
   }
 
-  public Person updateById(int id, PersonDTO person) {
+  public Person updateById(int id, Person person) {
 
     Person foundPerson = peopleRepository.findById(id);
 
-    if ((person.getFio() != null) && (!person.getFio().equals("string"))) {
-      foundPerson.setFIO(person.getFio());
+    if ((person.getFIO() != null) && (!person.getFIO().equals("string"))) {
+      foundPerson.setFIO(person.getFIO());
     }
     if (person.getPersonGender() != null) {
       foundPerson.setPersonGender(person.getPersonGender());
@@ -67,6 +67,10 @@ public class PeopleService {
     if (foundPerson.getWeight() != 0) {
       foundPerson.setWeight(person.getWeight());
     }
+
+    // 2141 - 4
+    enrichPerson(foundPerson);
+    setTotalCal();
 
     return peopleRepository.save(foundPerson);
   }

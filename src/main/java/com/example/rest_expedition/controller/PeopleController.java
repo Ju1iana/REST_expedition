@@ -95,7 +95,7 @@ public class PeopleController {
   @PatchMapping("/update")
   public void updatePerson(@RequestParam("id") int id,
                          @RequestBody (required = false) PersonDTO personDTO){
-    peopleService.updateById(id, personDTO);
+    peopleService.updateById(id, convertToPerson(personDTO));
   }
 
   @Operation(summary = "Get total calories")
@@ -112,4 +112,5 @@ public class PeopleController {
   public PersonDTO convertToPersonDTO(Person person) {
     return modelMapper.map(person, PersonDTO.class);
   }
+
 }
