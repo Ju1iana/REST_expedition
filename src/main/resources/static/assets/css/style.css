@@ -1,22 +1,217 @@
-.DataTable {
-    border-collapse: collapse;
+.background-left {
+    width: 20%;
+    height: 100%;
+    background-color: #eeeff5;
+    position: fixed; /* фиксированное положение */
+    top: 0; /* расположение сверху */
+    left: 0; /* расположение слева */
+    border: 1px solid #9393ad;
+    box-shadow: 3px 3px 7px #9393ad;
+    z-index: 998;
+}
+
+.main-site {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
+    height: 100%;
 }
 
-.DataTable td, .peopleTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
+.site-index {
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-top: 20px;
+
 }
 
-.DataTable th {
-    background-color: #f2f2f2;
-    text-align: left;
+.site-contact {
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-top: 20px;
+
 }
 
-.DataTable tr:nth-child(even) {
-    background-color: #f9f9f9;
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 999;
 }
 
-.DataTable tr:hover {
-    background-color: #f5f5f5;
+.CreatePersonModule {
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.SetHikeModule {
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+
+.accordi {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: 1%;
+    width: 70%;
+}
+
+
+/*Невидимое тело аккордеона, которое отвечает за взаимодействие*/
+.accordion-item {
+    width: 100%;
+    border: 1px solid #000000;
+    margin: 10px 0;
+}
+
+/*Заголовок аккордиона, с кнопкой удаления и инфой пользователя*/
+.accordion-header {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    background-color: #e5dbd3;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-radius: 7px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 4px #9393ad;
+
+}
+
+.accordion-header:hover {
+    background: rgb(220, 205, 198);
+}
+
+/*.accordion-header:active {*/
+/*    background: rgb(147, 33, 33);*/
+/*    box-shadow: 0 3px rgb(147, 33, 33) inset;*/
+/*}*/
+
+
+
+/*Содержание тела аккордеона, которое раскрывается*/
+.accordion-content {
+    display: none;
+    font-family: sans-serif;
+    font-weight: 550;
+    background-color: #f1f1fa;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px #9393ad;
+}
+
+
+
+.send-button1 {
+    height: 40px;
+    width: 180px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+    margin-top: 30px;
+    margin-left: 27%;
+}
+.send-button1:hover {
+    background: rgb(53, 167, 110);
+}
+.send-button1:active {
+    background: rgb(33,147,90);
+    box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+.send-button2 {
+    height: 40px;
+    width: 140px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+    margin-top: 30px;
+    margin-left: 10%;
+}
+.send-button2:hover {
+    background: rgb(53, 167, 110);
+}
+.send-button2:active {
+    background: rgb(33,147,90);
+    box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+
+.delete-button {
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: 500;
+
+    height: 30px;
+    width: 120px;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 3px;
+    background: rgb(203, 65, 65);
+    box-shadow: 0 -3px rgb(167, 53, 53) inset;
+    transition: 0.2s;
+
+    margin-top: 30px;
+    margin-left: 10%;
+}
+
+.delete-button:hover {
+    background: rgb(167, 53, 53);
+}
+
+.delete-button:active {
+    background: rgb(147, 33, 33);
+    box-shadow: 0 3px rgb(147, 33, 33) inset;
+}
+
+
+.change-button {
+    font-size: 12px;
+    font-family: sans-serif;
+    height: 30px;
+    width: 130px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(150, 64, 199);
+    box-shadow: 0 -3px rgb(152, 53, 167) inset;
+    transition: 0.2s;
+    margin-top: 30px;
+    margin-left: 10%;
+}
+
+.change-button:hover {
+    background: rgb(152, 53, 167);
+}
+.change-button:active {
+    background: rgb(147, 33, 141);
+    box-shadow: 0 3px rgb(147, 33, 138) inset;
 }

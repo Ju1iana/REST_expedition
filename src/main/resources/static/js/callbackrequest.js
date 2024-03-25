@@ -15,11 +15,11 @@ Buttonpostcall.addEventListener('click', () => {
         console.log(val1, val2, val3);
 
         var call = {
-            user: val1, mail: val2, report: val3
+            senderName: val1, email: val2, text: val3
         };
 
 
-        let response = await fetch('http://77.222.53.207:8080/sendMessage', {
+        let response = await fetch('http://localhost:8080/sendMessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
