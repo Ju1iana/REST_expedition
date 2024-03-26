@@ -13,7 +13,8 @@ ButtonPostehike3.addEventListener('click', () => {
 
         console.log(value1, value2, value3);
 
-        let formData = new FormData();
+
+        let formData = new FormData();        // Формирование body для POST запроса
         formData.append('duration', value1);
         formData.append('type', value2);
         formData.append('difficulty', value3)
@@ -23,7 +24,7 @@ ButtonPostehike3.addEventListener('click', () => {
             alert('Неверная длительность похода')
         } else {
 
-            let response = await fetch('http://77.222.53.207:8080/addParameters', {
+            let response = await fetch('http://localhost:8080/addParameters', {
                 method: 'POST',
                 body: formData
             });
@@ -31,16 +32,54 @@ ButtonPostehike3.addEventListener('click', () => {
             let result = await response.json();
             console.log(result)
 
+            async function getRation() {
+
+                let DataRation = await fetch('http://localhost:8080/getRation',{
+                    method:'GET'
+                });
+
+                let data = await DataRation.json();
+                console.log(data)
+
+
+                var head = $("<tr />")
+                $("#DataTable").append(head);
+                for (var j = 0; j < Object.keys(data[0]).length; j++) {
+                    head.append($("<th>" + Object.keys(data[0])[j] + "</th>"));
+                }
+                for (var i = 0; i < data.length; i++) {
+                    drawRow(data[i]);
+                }
+
+
+                function drawRow(data) {
+                    var row = $("<tr />")
+                    $("#DataTable").append(row);
+                    row.append($("<td>" + data["day"] + "</td>"));
+                    row.append($("<td>" + data["nameOfMeal"] + "</td>"));
+                    row.append($("<td>" + data["products"].map(it => it.name + " " + it.daily_norm_per_person + "гр " + it.calories_per_100g + "ккал").join(' &#9668; ') + "</td>"));
+                }
+            }
+
+            setTimeout(getRation, 300);
+
         }
     }
-
     postHikeResponse()
 
-    function clearduration() {
+
+
+    function clearduration() {       // Очистка полей ввода после отправки данных о походе
         document.getElementById('putin2').reset();
     }
+    setTimeout(clearduration, 500);
 
-    setTimeout(clearduration, 1000);
+
+
+    // var tableContainer = document.getElementById("DataTable");
+    // tableContainer.innerHTML = "";
+
+
 
 
 })

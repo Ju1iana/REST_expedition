@@ -1,8 +1,3 @@
-// const cssLink = document.createElement('link');
-// cssLink.rel = 'stylesheet';
-// cssLink.href = 'styles.css';
-// document.head.appendChild(cssLink);
-
 
 const ButtonPost = document.getElementById('fetchButtonPost');
 
@@ -271,6 +266,11 @@ ButtonPost.addEventListener('click', () => {
     }
     setTimeout(getResponse,500);
 })
+
+
+
+
+
 
 
 

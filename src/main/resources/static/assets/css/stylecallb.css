@@ -20,7 +20,7 @@
 
 
 .site-index {
-    font-family: 'Dancing Script', cursive;
+    font-family: "Segoe UI", bold;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 20px;
@@ -28,12 +28,14 @@
 }
 
 .site-contact {
-    font-family: 'Dancing Script', cursive;
+    font-family: "Segoe UI", bold;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 20px;
 
 }
+
+
 
 .left-panel {
     display: flex;
@@ -52,7 +54,6 @@
     margin-right: 0.5%;
     margin-left: 2%;
     margin-top: 1%;
-
 }
 
 
@@ -69,6 +70,7 @@
     margin-top: 30px;
     margin-left: 45%;
 }
+
 .buttoncallback:hover {
     background: rgb(53, 167, 110);
 }

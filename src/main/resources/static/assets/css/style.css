@@ -7,7 +7,7 @@
     left: 0; /* расположение слева */
     border: 1px solid #9393ad;
     box-shadow: 3px 3px 7px #9393ad;
-    z-index: 998;
+    z-index: 997;
 }
 
 .main-site {
@@ -19,7 +19,7 @@
 }
 
 .site-index {
-    font-family: 'Dancing Script', cursive;
+    font-family: "Segoe UI", bold;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 20px;
@@ -27,12 +27,14 @@
 }
 
 .site-contact {
-    font-family: 'Dancing Script', cursive;
+    font-family: "Segoe UI", bold;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 20px;
 
 }
+
+
 
 .left-panel {
     display: flex;
@@ -40,7 +42,7 @@
     width: 20%;
     height: 100%;
     background: rgba(255, 255, 255, 0);
-    z-index: 999;
+    z-index: 998;
 }
 
 .CreatePersonModule {
@@ -84,7 +86,7 @@
     font-family: sans-serif;
     font-size: 16px;
     font-weight: 800;
-    background-color: #e5dbd3;
+    background-color: #eae6e0;
     padding-left: 20px;
     padding-bottom: 20px;
     border-radius: 7px;
@@ -94,7 +96,7 @@
 }
 
 .accordion-header:hover {
-    background: rgb(220, 205, 198);
+    background: rgb(225, 212, 206);
 }
 
 /*.accordion-header:active {*/
@@ -143,7 +145,7 @@
 
 .send-button2 {
     height: 40px;
-    width: 140px;
+    width: 160px;
     font-weight: 500;
     color: white;
     text-decoration: none;
@@ -201,17 +203,71 @@
     color: white;
     text-decoration: none;
     border-radius: 3px;
-    background: rgb(150, 64, 199);
-    box-shadow: 0 -3px rgb(152, 53, 167) inset;
+    background: rgb(176, 101, 220);
+    box-shadow: 0 -3px rgb(181, 84, 196) inset;
     transition: 0.2s;
     margin-top: 30px;
     margin-left: 10%;
 }
 
 .change-button:hover {
-    background: rgb(152, 53, 167);
+    background: rgb(177, 80, 192);
 }
 .change-button:active {
-    background: rgb(147, 33, 141);
-    box-shadow: 0 3px rgb(147, 33, 138) inset;
+    background: rgb(176, 57, 170);
+    box-shadow: 0 3px rgb(176, 57, 166) inset;
+}
+
+
+
+
+
+
+
+
+
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    border: 1px solid black;*/
+/*    width: 78%;*/
+/*    margin-top: 50px;*/
+/*    margin-left: 21%;*/
+/*    z-index: 999;*/
+
+/*}*/
+
+/*th, td {*/
+/*    border: 1px solid black;*/
+/*    padding: 8px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*th {*/
+/*    background-color: #ddebff;*/
+/*}*/
+
+.DataTable {
+    border-collapse: collapse;
+    width: 78%;
+    margin-top: 50px;
+    margin-left: 21%;
+    z-index: 999;
+}
+
+.DataTable td, .peopleTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.DataTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.DataTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.DataTable tr:hover {
+    background-color: #f5f5f5;
 }
