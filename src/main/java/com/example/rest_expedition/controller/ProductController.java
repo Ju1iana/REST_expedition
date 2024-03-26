@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,9 +45,6 @@ public class ProductController {
   @RequestMapping(method = RequestMethod.GET, value = "/getRation")
   public List<Ration> getProductsByType(){
     return productCalculator.initEatingCalories();
-    //productService.getProductsByType();
-    /*return productService.getProductsByType().stream().map(this::convertToProductDTO).collect(Collectors.toList());*/
-    //return productCalculator.getAllRations();
   }
 
   @Operation(summary = "List of hiking calories")
@@ -59,10 +55,7 @@ public class ProductController {
     for (int i = 0; i < productCalculator.initCalories().size(); i++) {
       result.add(peopleService.getAllPeople().get(i).getFIO() + " - " + productCalculator.initCalories().get(i));
     }
-
     return result;
-
-    /*return productCalculator.initCalories();*/
   }
 
   @Operation(summary = "Get all calories")
