@@ -15,7 +15,7 @@ Buttonpostcall.addEventListener('click', () => {
         console.log(val1, val2, val3);
 
         var call = {
-            user: val1, mail: val2, report: val3
+            senderName: val1, email: val2, text: val3
         };
 
 
