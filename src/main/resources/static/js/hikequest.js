@@ -23,7 +23,7 @@ ButtonPostehike3.addEventListener('click', () => {
             alert('Неверная длительность похода')
         } else {
 
-            let response = await fetch('http://77.222.53.207:8080/addParameters', {
+            let response = await fetch('http://localhost:8080/addParameters', {
                 method: 'POST',
                 body: formData
             });

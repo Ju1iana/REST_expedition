@@ -4,7 +4,7 @@ Buttongetid.addEventListener('click', () => {
 
     async function getResponse() {
         const userID = 1;
-        let response = await fetch('http://77.222.53.207:8080/getPersonById?id='+userID,{
+        let response = await fetch('http://localhost:8080/getPersonById?id='+userID,{
             mode: 'no-cors',
         })
 

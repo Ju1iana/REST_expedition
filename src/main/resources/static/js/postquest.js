@@ -36,7 +36,7 @@ ButtonPoste3.addEventListener('click', () => {
                     alert('Неверный вес')
                 } else {
 
-                    let response = await fetch('http://77.222.53.207:8080/addPerson', {
+                    let response = await fetch('http://localhost:8080/addPerson', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json;charset=utf-8'
@@ -61,7 +61,7 @@ ButtonPoste3.addEventListener('click', () => {
     clearPlaceholders()
 
     async function getResponse() {
-        var response = await fetch('http://77.222.53.207:8080/getAllPeople', {
+        var response = await fetch('http://localhost:8080/getAllPeople', {
             mode: 'no-cors'
         })
 
