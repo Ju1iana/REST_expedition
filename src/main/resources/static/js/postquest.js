@@ -38,7 +38,6 @@ ButtonPost.addEventListener('click', () => {
                     console.log('Ошибка');
                     alert('Неверный вес')
                 } else {
-                    // POST запрос в формате JSON
                     let response = await fetch('http://localhost:8080/addPerson', {
                         method: 'POST',
                         headers: {
